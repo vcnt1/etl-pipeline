@@ -1,0 +1,13 @@
+[2025-06-24 20:39:31] INFO - etl.transformer - Iniciando ETL pipeline
+[2025-06-24 20:39:31] INFO - etl.transformer - Arquivo de entrada encontrado, pulando extração...
+[2025-06-24 20:39:33] INFO - etl.transformer - Etapa: Transformação
+[2025-06-24 20:39:33] INFO - etl.transformer - Iniciado: Transformer.transform
+[2025-06-24 20:39:33] INFO - etl.transformer - Iniciado: Transformer.__drops
+[2025-06-24 20:39:34] INFO - etl.transformer - Finalizado: Transformer.__drops (Duração: 1.126s)
+[2025-06-24 20:39:34] INFO - etl.transformer - Iniciado: Transformer.__parse_data
+[2025-06-24 20:39:34] INFO - etl.transformer - Finalizado: Transformer.__parse_data (Duração: 0.206s)
+[2025-06-24 20:39:34] INFO - etl.transformer - Iniciado: Validator.is_valid
+[2025-06-24 20:39:34] INFO - etl.transformer - Finalizado: Validator.is_valid (Duração: 0.012s)
+[2025-06-24 20:39:34] INFO - etl.transformer - Finalizado: Transformer.transform (Duração: 1.345s)
+[2025-06-24 20:39:35] INFO - etl.transformer - Etapa: Carregamento
+[2025-06-24 20:39:36] INFO - etl.transformer - ETL pipeline finalizada com sucesso!

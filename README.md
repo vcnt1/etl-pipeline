@@ -17,3 +17,9 @@ In order to get started, run following setup
 To update requirements.txt:
 
     pip freeze > requirements.txt
+
+## Run
+
+To run the pipeline (after activate venv and installing dependencies):
+
+    python src/main.go
