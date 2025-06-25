@@ -44,7 +44,6 @@ class Pipeline:
 
         log.logger.info("Etapa: Carregamento")
 
-        df = self.loader.load(df)
-        df.to_csv(self.output_data_path)
+        df = self.loader.load(df, self.output_data_path)
 
         log.logger.info("ETL pipeline finalizada com sucesso!")

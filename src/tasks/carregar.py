@@ -11,5 +11,5 @@ class Loader:
     def __init__(self):
         pass
 
-    def load(self, df: pd.DataFrame) -> pd.DataFrame:
-        return df
+    def load(self, df: pd.DataFrame, path: str):
+        df.to_csv(path)

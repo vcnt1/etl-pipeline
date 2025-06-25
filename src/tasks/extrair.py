@@ -1,6 +1,8 @@
 import os
 import warnings
 
+import pandas as pd
+
 from logs.logger import Logger
 import kagglehub
 from kagglehub import KaggleDatasetAdapter
@@ -12,7 +14,7 @@ class Extractor:
     def __init__(self):
         pass
 
-    def extract(self):
+    def extract(self) -> pd.DataFrame:
         # hide kaggle depecrated warning
         warnings.filterwarnings("ignore")
 
@@ -25,6 +27,4 @@ class Extractor:
         # turn warning on again
         warnings.filterwarnings("default")
 
-        current_directory = os.getcwd()
-        path = current_directory + "/data/input.csv"
-        df.to_csv(path)
+        return df
