@@ -11,6 +11,7 @@ In order to get started, run following setup
     python3.13 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
+    export PYTHONPATH=\$PYTHONPATH:/$(pwd)
 
 ### Update requirements.txt
 
@@ -26,4 +27,4 @@ To run the pipeline (after activate venv and installing dependencies):
 
 Or
 
-    python src/main.go
+    python src/main.py
