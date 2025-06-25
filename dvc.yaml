@@ -1,0 +1,21 @@
+stages:
+  extract:
+    cmd: python src/dvc_extractor.py
+    deps:
+    - src/dvc_extractor.py
+    outs:
+    - data/input.csv
+  transform:
+    cmd: python src/dvc_transformer.py data/input.csv
+    deps:
+    - data/input.csv
+    - src/dvc_transformer.py
+    outs:
+    - data/stage.csv
+  load:
+    cmd: python src/dvc_loader.py data/stage.csv
+    deps:
+    - data/stage.csv
+    - src/dvc_loader.py
+    outs:
+    - data/output.csv

@@ -1,0 +1,46 @@
+schema: '2.0'
+stages:
+  extract:
+    cmd: python src/dvc_extractor.py
+    deps:
+    - path: src/dvc_extractor.py
+      hash: md5
+      md5: 2cc024fb86d30c6c2dc3a2b9c0cf0f36
+      size: 184
+    outs:
+    - path: data/input.csv
+      hash: md5
+      md5: b4a84ad1a1324fa9e76153c76f3b4ec9
+      size: 68588797
+  transform:
+    cmd: python src/dvc_transformer.py data/input.csv
+    deps:
+    - path: data/input.csv
+      hash: md5
+      md5: b4a84ad1a1324fa9e76153c76f3b4ec9
+      size: 68588797
+    - path: src/dvc_transformer.py
+      hash: md5
+      md5: 70eb9bdf5d8f716d41952b57652686f4
+      size: 254
+    outs:
+    - path: data/stage.csv
+      hash: md5
+      md5: 750ba50bad82f8444a7f7133c83e88c8
+      size: 24890236
+  load:
+    cmd: python src/dvc_loader.py data/stage.csv
+    deps:
+    - path: data/stage.csv
+      hash: md5
+      md5: 750ba50bad82f8444a7f7133c83e88c8
+      size: 24890236
+    - path: src/dvc_loader.py
+      hash: md5
+      md5: 3f27ca56438cc7651297e54da47aeef3
+      size: 207
+    outs:
+    - path: data/output.csv
+      hash: md5
+      md5: e33cf504e7f542fd9c9a59393882cb62
+      size: 26598474
