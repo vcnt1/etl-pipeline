@@ -8,10 +8,19 @@ This project requires:
 ### Setup project
 In order to get started, run following setup
 
+    //on linux
     python3.13 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
     export PYTHONPATH=\$PYTHONPATH:/$(pwd)
+    
+<br/>
+
+    //on windows
+    python3.13 -m venv .venv
+    .venv\Scripts\activate.bat  
+    pip install -r requirements.txt
+    $env:PYTHONPATH = "$env:PYTHONPATH;$PWD"
 
 ### Update requirements.txt
 
