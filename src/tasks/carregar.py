@@ -12,4 +12,7 @@ class Loader:
         pass
 
     def load(self, df: pd.DataFrame, path: str):
+        log.logger.info("[MOCK] Carregando dados no SQLite, ...")
+        log.logger.info("[MOCK] Publicando dados via API externa, ...")
+        log.logger.info("Escrevendo dados em formato .CSV, ...")
         df.to_csv(path)
