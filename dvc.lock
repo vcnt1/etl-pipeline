@@ -5,42 +5,54 @@ stages:
     deps:
     - path: src/dvc_extractor.py
       hash: md5
-      md5: 2cc024fb86d30c6c2dc3a2b9c0cf0f36
-      size: 184
+      md5: 533d3857fb506c310730f7900a366837
+      size: 470
     outs:
-    - path: data/input.csv
+    - path: data/bcb_real2dolar_stage.parquet
       hash: md5
-      md5: b4a84ad1a1324fa9e76153c76f3b4ec9
-      size: 68588797
+      md5: 039300269671bc9145c7564d05b90170
+      size: 1106
+    - path: data/bcb_selic_input.parquet
+      hash: md5
+      md5: e09b54619de89704060acf93bab353fd
+      size: 13651
+    - path: data/brinvesting_news_stage.parquet
+      hash: md5
+      md5: a7bc82d12c74b75e8fdb036c9ec54c9b
+      size: 6132
   transform:
-    cmd: python src/dvc_transformer.py data/input.csv
+    cmd: python src/dvc_transformer.py data/bcb_selic_input.parquet
     deps:
-    - path: data/input.csv
+    - path: data/bcb_selic_input.parquet
       hash: md5
-      md5: b4a84ad1a1324fa9e76153c76f3b4ec9
-      size: 68588797
+      md5: e09b54619de89704060acf93bab353fd
+      size: 13651
     - path: src/dvc_transformer.py
       hash: md5
-      md5: 70eb9bdf5d8f716d41952b57652686f4
-      size: 254
+      md5: 8e937aef10bc621950901ef24927c591
+      size: 324
     outs:
-    - path: data/stage.csv
+    - path: data/bcb_selic_stage.parquet
       hash: md5
-      md5: 750ba50bad82f8444a7f7133c83e88c8
-      size: 24890236
+      md5: 8e3dc8c3cdce40718131bce51eda5ba4
+      size: 1551
   load:
-    cmd: python src/dvc_loader.py data/stage.csv
+    cmd: python src/dvc_loader.py data/brinvesting_news_stage.parquet 
+      data/bcb_real2dolar_stage.parquet data/bcb_selic_stage.parquet
     deps:
-    - path: data/stage.csv
+    - path: data/bcb_real2dolar_stage.parquet
       hash: md5
-      md5: 750ba50bad82f8444a7f7133c83e88c8
-      size: 24890236
+      md5: 039300269671bc9145c7564d05b90170
+      size: 1106
+    - path: data/bcb_selic_stage.parquet
+      hash: md5
+      md5: 8e3dc8c3cdce40718131bce51eda5ba4
+      size: 1551
+    - path: data/brinvesting_news_stage.parquet
+      hash: md5
+      md5: a7bc82d12c74b75e8fdb036c9ec54c9b
+      size: 6132
     - path: src/dvc_loader.py
       hash: md5
-      md5: 3f27ca56438cc7651297e54da47aeef3
-      size: 207
-    outs:
-    - path: data/output.csv
-      hash: md5
-      md5: e33cf504e7f542fd9c9a59393882cb62
-      size: 26598474
+      md5: 0aa0a6d51dcca3158cf7865af18f395e
+      size: 324

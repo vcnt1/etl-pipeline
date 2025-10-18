@@ -16,7 +16,7 @@ class Scrapper():
         pass
 
     def get_news(self) -> pd.DataFrame:
-        min_news = 100
+        min_news = 1
         news = []
         page = 1
 
@@ -45,14 +45,18 @@ class Scrapper():
 
         return df
     
-    def get_monetary_history(self) -> pd.DataFrame:
+    def get_real2dolar_history(self) -> pd.DataFrame:
         return self.get_history(BCB_USD_BRL_CODE)
     
     def get_selic_history(self) -> pd.DataFrame:
-        return self.get_history(BCB_SELIC_CODE)
+        return self.get_history(BCB_SELIC_CODE, 120)
         
-    def get_history(self, code: str) -> pd.DataFrame:
-        months_back = 1
+    def get_history(self, code: str, months_back: int = 1) -> pd.DataFrame:
+        # This BCB API only accept request from at most 10 years (120 months) at a time
+        # TODO: improve this function to break greater than 120 months calls into multiple requests
+        if months_back > 120:
+            raise Exception("Exceeded maximum threshold")
+
         start, end = bcb_get_date_range(months_back)
 
         data = bcb_get_data(code, start, end)

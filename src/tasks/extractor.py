@@ -14,7 +14,7 @@ class Extractor:
         return self.scrapper.get_news()
     
     def collect_monetary_history(self) -> pd.DataFrame:
-        return self.scrapper.get_monetary_history()
+        return self.scrapper.get_real2dolar_history()
     
     def collect_selic_history(self) -> pd.DataFrame:
         return self.scrapper.get_selic_history()

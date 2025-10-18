@@ -6,8 +6,9 @@ from tasks.transformer import Transformer
 
 
 def transform():
-    df = Transformer().transform(pd.read_csv(sys.argv[1]))
-    df.to_csv(os.getcwd() + "/data/stage.csv")
+    transformer = Transformer()
+    df = transformer.bcb_selic_to_history_series(pd.read_parquet(sys.argv[1]))
+    df.to_parquet(os.getcwd() + "/data/bcb_selic_stage.parquet")
 
 
 if __name__ == "__main__":

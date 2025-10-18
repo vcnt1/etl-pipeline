@@ -4,18 +4,20 @@ stages:
     deps:
     - src/dvc_extractor.py
     outs:
-    - data/input.csv
+    - data/brinvesting_news_stage.parquet
+    - data/bcb_real2dolar_stage.parquet
+    - data/bcb_selic_input.parquet
   transform:
-    cmd: python src/dvc_transformer.py data/input.csv
+    cmd: python src/dvc_transformer.py data/bcb_selic_input.parquet
     deps:
-    - data/input.csv
+    - data/bcb_selic_input.parquet
     - src/dvc_transformer.py
     outs:
-    - data/stage.csv
+    - data/bcb_selic_stage.parquet
   load:
-    cmd: python src/dvc_loader.py data/stage.csv
+    cmd: python src/dvc_loader.py data/brinvesting_news_stage.parquet data/bcb_real2dolar_stage.parquet data/bcb_selic_stage.parquet
     deps:
-    - data/stage.csv
+    - data/brinvesting_news_stage.parquet
+    - data/bcb_real2dolar_stage.parquet
+    - data/bcb_selic_stage.parquet
     - src/dvc_loader.py
-    outs:
-    - data/output.csv

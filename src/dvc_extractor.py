@@ -3,8 +3,17 @@ from tasks.extractor import Extractor
 
 
 def extract():
-    df = Extractor().extract()
-    df.to_csv(os.getcwd() + "/data/input.csv")
+    extractor = Extractor()
+
+    df = extractor.collect_news()
+    df.to_parquet(os.getcwd() + "/data/brinvesting_news_stage.parquet")
+
+    df = extractor.collect_monetary_history()
+    df.to_parquet(os.getcwd() + "/data/bcb_real2dolar_stage.parquet")
+
+
+    df = extractor.collect_selic_history()
+    df.to_parquet(os.getcwd() + "/data/bcb_selic_input.parquet")
 
 
 if __name__ == "__main__":

@@ -20,6 +20,8 @@ def get_data(code: str, start_date: str, end_date: str, format: str = "json") ->
     resp = requests.get(url)
     if resp.status_code != 200:
         raise Exception("Failed to get BCB data")
+    
+    log.logger.info(f"Got successful response!")
 
     return resp.json()
 
