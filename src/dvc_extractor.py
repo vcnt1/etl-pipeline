@@ -1,5 +1,5 @@
 import os
-from tasks.extrair import Extractor
+from tasks.extractor import Extractor
 
 
 def extract():
