@@ -54,5 +54,5 @@ stages:
       size: 6132
     - path: src/dvc_loader.py
       hash: md5
-      md5: 0aa0a6d51dcca3158cf7865af18f395e
-      size: 324
+      md5: b55f7136e5eb32aa932cac89a8f37058
+      size: 314

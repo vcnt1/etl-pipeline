@@ -16,7 +16,7 @@ class Scrapper():
         pass
 
     def get_news(self) -> pd.DataFrame:
-        min_news = 1
+        min_news = 100
         news = []
         page = 1
 

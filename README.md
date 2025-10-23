@@ -6,6 +6,8 @@ This project implements a **data engineering pipeline** for a **Fintech investme
 
 It supports **web scraping of financial news**, **collection of historical economic series**, and **storage in a local DuckDB database** for downstream analytics and dashboards.
 
+Using DVC, it will save the raw data to `parquet` and the final data to `Duckdb`
+
 ---
 
 ## 🚀 Features
